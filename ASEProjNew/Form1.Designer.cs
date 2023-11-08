@@ -28,66 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            label1 = new Label();
-            label2 = new Label();
-            textBox2 = new TextBox();
+            singlecommandbox = new TextBox();
+            runbutton = new Button();
+            syntaxbutton = new Button();
+            graphicsarea = new PictureBox();
+            completecommandbox = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)graphicsarea).BeginInit();
             SuspendLayout();
             // 
-            // textBox1
+            // singlecommandbox
             // 
-            textBox1.Location = new Point(34, 50);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(98, 27);
-            textBox1.TabIndex = 0;
-            textBox1.TextChanged += textBox1_TextChanged;
+            singlecommandbox.Location = new Point(51, 338);
+            singlecommandbox.Name = "singlecommandbox";
+            singlecommandbox.Size = new Size(392, 27);
+            singlecommandbox.TabIndex = 3;
             // 
-            // label1
+            // runbutton
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(38, 16);
-            label1.Name = "label1";
-            label1.Size = new Size(75, 20);
-            label1.TabIndex = 1;
-            label1.Text = "First Code";
+            runbutton.Location = new Point(96, 383);
+            runbutton.Name = "runbutton";
+            runbutton.Size = new Size(94, 29);
+            runbutton.TabIndex = 4;
+            runbutton.Text = "Run";
+            runbutton.UseVisualStyleBackColor = true;
             // 
-            // label2
+            // syntaxbutton
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(39, 119);
-            label2.Name = "label2";
-            label2.Size = new Size(97, 20);
-            label2.TabIndex = 2;
-            label2.Text = "Second Code";
+            syntaxbutton.Location = new Point(304, 383);
+            syntaxbutton.Name = "syntaxbutton";
+            syntaxbutton.Size = new Size(94, 29);
+            syntaxbutton.TabIndex = 5;
+            syntaxbutton.Text = "Syntax";
+            syntaxbutton.UseVisualStyleBackColor = true;
+            syntaxbutton.Click += button1_Click;
             // 
-            // textBox2
+            // graphicsarea
             // 
-            textBox2.Location = new Point(41, 174);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(125, 27);
-            textBox2.TabIndex = 3;
+            graphicsarea.BackColor = SystemColors.ControlDarkDark;
+            graphicsarea.Location = new Point(589, 12);
+            graphicsarea.Name = "graphicsarea";
+            graphicsarea.Size = new Size(400, 400);
+            graphicsarea.TabIndex = 6;
+            graphicsarea.TabStop = false;
+            // 
+            // completecommandbox
+            // 
+            completecommandbox.Location = new Point(44, 21);
+            completecommandbox.Multiline = true;
+            completecommandbox.Name = "completecommandbox";
+            completecommandbox.Size = new Size(399, 302);
+            completecommandbox.TabIndex = 7;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(textBox2);
-            Controls.Add(label2);
-            Controls.Add(label1);
-            Controls.Add(textBox1);
+            ClientSize = new Size(1048, 546);
+            Controls.Add(completecommandbox);
+            Controls.Add(graphicsarea);
+            Controls.Add(syntaxbutton);
+            Controls.Add(runbutton);
+            Controls.Add(singlecommandbox);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)graphicsarea).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private TextBox textBox1;
-        private Label label1;
-        private Label label2;
-        private TextBox textBox2;
+        private TextBox singlecommandbox;
+        private Button runbutton;
+        private Button syntaxbutton;
+        private PictureBox graphicsarea;
+        private TextBox completecommandbox;
     }
 }
