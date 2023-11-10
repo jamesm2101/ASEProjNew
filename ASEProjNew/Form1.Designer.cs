@@ -33,19 +33,21 @@
             syntaxbutton = new Button();
             graphicsarea = new PictureBox();
             completecommandbox = new TextBox();
+            savebutton = new Button();
+            loadbutton = new Button();
             ((System.ComponentModel.ISupportInitialize)graphicsarea).BeginInit();
             SuspendLayout();
             // 
             // singlecommandbox
             // 
-            singlecommandbox.Location = new Point(51, 338);
+            singlecommandbox.Location = new Point(44, 385);
             singlecommandbox.Name = "singlecommandbox";
-            singlecommandbox.Size = new Size(392, 27);
+            singlecommandbox.Size = new Size(434, 27);
             singlecommandbox.TabIndex = 3;
             // 
             // runbutton
             // 
-            runbutton.Location = new Point(96, 383);
+            runbutton.Location = new Point(119, 436);
             runbutton.Name = "runbutton";
             runbutton.Size = new Size(94, 29);
             runbutton.TabIndex = 4;
@@ -54,7 +56,7 @@
             // 
             // syntaxbutton
             // 
-            syntaxbutton.Location = new Point(304, 383);
+            syntaxbutton.Location = new Point(314, 436);
             syntaxbutton.Name = "syntaxbutton";
             syntaxbutton.Size = new Size(94, 29);
             syntaxbutton.TabIndex = 5;
@@ -65,7 +67,7 @@
             // graphicsarea
             // 
             graphicsarea.BackColor = SystemColors.ControlDarkDark;
-            graphicsarea.Location = new Point(589, 12);
+            graphicsarea.Location = new Point(597, 41);
             graphicsarea.Name = "graphicsarea";
             graphicsarea.Size = new Size(400, 400);
             graphicsarea.TabIndex = 6;
@@ -73,17 +75,39 @@
             // 
             // completecommandbox
             // 
-            completecommandbox.Location = new Point(44, 21);
+            completecommandbox.Location = new Point(44, 61);
             completecommandbox.Multiline = true;
             completecommandbox.Name = "completecommandbox";
-            completecommandbox.Size = new Size(399, 302);
+            completecommandbox.Size = new Size(434, 302);
             completecommandbox.TabIndex = 7;
+            completecommandbox.TextChanged += completecommandbox_TextChanged;
+            // 
+            // savebutton
+            // 
+            savebutton.Location = new Point(119, 28);
+            savebutton.Name = "savebutton";
+            savebutton.Size = new Size(94, 29);
+            savebutton.TabIndex = 8;
+            savebutton.Text = "Save";
+            savebutton.UseVisualStyleBackColor = true;
+            // 
+            // loadbutton
+            // 
+            loadbutton.Location = new Point(314, 28);
+            loadbutton.Name = "loadbutton";
+            loadbutton.Size = new Size(94, 29);
+            loadbutton.TabIndex = 9;
+            loadbutton.Text = "Load";
+            loadbutton.UseVisualStyleBackColor = true;
+            loadbutton.Click += loadbutton_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1048, 546);
+            Controls.Add(loadbutton);
+            Controls.Add(savebutton);
             Controls.Add(completecommandbox);
             Controls.Add(graphicsarea);
             Controls.Add(syntaxbutton);
@@ -103,5 +127,7 @@
         private Button syntaxbutton;
         private PictureBox graphicsarea;
         private TextBox completecommandbox;
+        private Button savebutton;
+        private Button loadbutton;
     }
 }
