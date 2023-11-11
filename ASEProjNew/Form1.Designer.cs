@@ -44,6 +44,7 @@
             singlecommandbox.Name = "singlecommandbox";
             singlecommandbox.Size = new Size(434, 27);
             singlecommandbox.TabIndex = 3;
+            singlecommandbox.KeyDown += singlecommandbox_KeyDown;
             // 
             // runbutton
             // 
@@ -72,6 +73,7 @@
             graphicsarea.Size = new Size(400, 400);
             graphicsarea.TabIndex = 6;
             graphicsarea.TabStop = false;
+            graphicsarea.Paint += graphicsarea_Paint;
             // 
             // completecommandbox
             // 
@@ -117,6 +119,8 @@
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
+            Paint += Form1_Paint;
+            MouseMove += Form1_MouseMove;
             ((System.ComponentModel.ISupportInitialize)graphicsarea).EndInit();
             ResumeLayout(false);
             PerformLayout();

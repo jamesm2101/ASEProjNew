@@ -6,9 +6,25 @@ namespace ASEProjNew
 {
     public partial class Form1 : Form
     {
+        const bool RUN = true;
+        const bool NO_RUN = false;
+        //two bitmaps to create output on the added picture box
+        Bitmap OutputBitmap = new Bitmap(1066, 593);
+        Bitmap CursorBitmap = new Bitmap(1066, 593);
+        Graphics GraphicalBitMap;
+        canvass Canvass;
+        commandparser parser;
+        Command c;
+        Color BackgroundColour = Color.DarkGray;
         public Form1()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; //centre the form
+            GraphicalBitMap = Graphics.FromImage(OutputBitmap);
+            Canvass = new canvass(this, Graphics.FromImage(CursorBitmap), Graphics.FromImage(OutputBitmap));
+            parser = new commandparser(Canvass);
+            GraphicalBitMap.Clear(BackgroundColour);
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -55,21 +71,47 @@ namespace ASEProjNew
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.Title = "Save a Text File";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK);
-                try
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK) ;
+            try
+            {
+                if (saveFileDialog1.FileName != "")
                 {
-                    if (saveFileDialog1.FileName != "")
-                    {
-                        System.IO.FileStream fs =
-                            (System.IO.FileStream)saveFileDialog1.OpenFile();
+                    System.IO.FileStream fs =
+                        (System.IO.FileStream)saveFileDialog1.OpenFile();
 
-                        fs.Close();
-                    }
+                    fs.Close();
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Could not save file" + ex.Message);
-                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Could not save file" + ex.Message);
+            }
+        }
+
+        private void singlecommandbox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+            }
+        }
+
+        private void Form1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void Form1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void graphicsarea_Paint(object sender, PaintEventArgs e)
+        {
+            Graphics g = e.Graphics;
+            g.DrawImageUnscaled(OutputBitmap, 0, 0); //Off screen bitmap is added to the form
+            g.DrawImageUnscaled(CursorBitmap, 0, 0); //cursor is added to the form
+
         }
     }
 }
