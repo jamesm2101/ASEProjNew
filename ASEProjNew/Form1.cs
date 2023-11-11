@@ -1,5 +1,7 @@
 using System.Runtime.CompilerServices;
-
+using System;
+using System.IO;
+using System.Windows.Forms;
 namespace ASEProjNew
 {
     public partial class Form1 : Form
@@ -46,6 +48,28 @@ namespace ASEProjNew
         private void completecommandbox_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void savebutton_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
+            saveFileDialog1.Title = "Save a Text File";
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK);
+                try
+                {
+                    if (saveFileDialog1.FileName != "")
+                    {
+                        System.IO.FileStream fs =
+                            (System.IO.FileStream)saveFileDialog1.OpenFile();
+
+                        fs.Close();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not save file" + ex.Message);
+                }
         }
     }
 }

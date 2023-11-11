@@ -90,6 +90,7 @@
             savebutton.TabIndex = 8;
             savebutton.Text = "Save";
             savebutton.UseVisualStyleBackColor = true;
+            savebutton.Click += savebutton_Click;
             // 
             // loadbutton
             // 
