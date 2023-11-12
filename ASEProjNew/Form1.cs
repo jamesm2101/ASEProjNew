@@ -14,7 +14,7 @@ namespace ASEProjNew
         Graphics GraphicalBitMap;
         canvass Canvass;
         commandparser parser;
-        Command c;
+        Command Command;
         Color BackgroundColour = Color.DarkGray;
         public Form1()
         {
@@ -76,8 +76,8 @@ namespace ASEProjNew
             {
                 if (saveFileDialog1.FileName != "")
                 {
-                    System.IO.FileStream fs =
-                        (System.IO.FileStream)saveFileDialog1.OpenFile();
+                    FileStream fs =
+                        (FileStream)saveFileDialog1.OpenFile();
 
                     fs.Close();
                 }
@@ -92,7 +92,7 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
-
+                string input = singlecommandbox.Text;
             }
         }
 
@@ -113,5 +113,11 @@ namespace ASEProjNew
             g.DrawImageUnscaled(CursorBitmap, 0, 0); //cursor is added to the form
 
         }
+
+        private void runbutton_Click(object sender, EventArgs e)
+        {
+            string input = completecommandbox.Text;
+        }
+
     }
 }
