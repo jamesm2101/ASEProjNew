@@ -12,18 +12,12 @@ namespace ASEProjNew
         Bitmap OutputBitmap = new Bitmap(1066, 593);
         Bitmap CursorBitmap = new Bitmap(1066, 593);
         Graphics GraphicalBitMap;
-        canvass Canvass;
-        commandparser parser;
-        Command Command;
         Color BackgroundColour = Color.DarkGray;
         public Form1()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
             GraphicalBitMap = Graphics.FromImage(OutputBitmap);
-            Canvass = new canvass(this, Graphics.FromImage(CursorBitmap), Graphics.FromImage(OutputBitmap));
-            parser = new commandparser(Canvass);
-            GraphicalBitMap.Clear(BackgroundColour);
 
         }
 
