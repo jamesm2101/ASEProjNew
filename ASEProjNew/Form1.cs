@@ -65,15 +65,12 @@ namespace ASEProjNew
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.Title = "Save a Text File";
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK) ;
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             try
             {
                 if (saveFileDialog1.FileName != "")
                 {
-                    FileStream fs =
-                        (FileStream)saveFileDialog1.OpenFile();
-
-                    fs.Close();
+                        System.IO.File.WriteAllText(saveFileDialog1.FileName, completecommandbox.Text);
                 }
             }
             catch (Exception ex)
