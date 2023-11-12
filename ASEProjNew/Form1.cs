@@ -2,6 +2,8 @@ using System.Runtime.CompilerServices;
 using System;
 using System.IO;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 namespace ASEProjNew
 {
     public partial class Form1 : Form
@@ -66,17 +68,17 @@ namespace ASEProjNew
             saveFileDialog1.Filter = "txt files (*.txt)|*.txt|All files (*.*)|*.*";
             saveFileDialog1.Title = "Save a Text File";
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            try
-            {
-                if (saveFileDialog1.FileName != "")
+                try
                 {
+                    if (saveFileDialog1.FileName != "")
+                    {
                         System.IO.File.WriteAllText(saveFileDialog1.FileName, completecommandbox.Text);
+                    }
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Could not save file" + ex.Message);
-            }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Could not save file" + ex.Message);
+                }
         }
 
         private void singlecommandbox_KeyDown(object sender, KeyEventArgs e)
@@ -105,9 +107,16 @@ namespace ASEProjNew
 
         }
 
+
         private void runbutton_Click(object sender, EventArgs e)
         {
-            string input = completecommandbox.Text;
+            string[] lines = completecommandbox.Lines;
+
+            for (int i = 0; i <= lines.GetUpperBound(0); i++)
+            {
+                MessageBox.Show(lines[i]);
+            }
+            completecommandbox.Clear();
         }
 
     }

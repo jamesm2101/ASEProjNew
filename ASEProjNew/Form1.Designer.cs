@@ -54,6 +54,7 @@
             runbutton.TabIndex = 4;
             runbutton.Text = "Run";
             runbutton.UseVisualStyleBackColor = true;
+            runbutton.Click += runbutton_Click;
             // 
             // syntaxbutton
             // 
