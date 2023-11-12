@@ -64,7 +64,7 @@
             syntaxbutton.TabIndex = 5;
             syntaxbutton.Text = "Syntax";
             syntaxbutton.UseVisualStyleBackColor = true;
-            syntaxbutton.Click += button1_Click;
+            syntaxbutton.Click += syntaxbutton_Click;
             // 
             // graphicsarea
             // 

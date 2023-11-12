@@ -11,11 +11,14 @@ namespace ASEProjNew
     {
         const bool RUN = true;
         const bool NO_RUN = false;
+        const bool execute = false;
         //two bitmaps to create output on the added picture box
         Bitmap OutputBitmap = new Bitmap(1066, 593);
         Bitmap CursorBitmap = new Bitmap(1066, 593);
         Graphics GraphicalBitMap;
         Color BackgroundColour = Color.DarkGray;
+        List<string> commandlist = new List<string>(new string[] { "moveTo", "drawTo", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
+
         public Form1()
         {
             InitializeComponent();
@@ -34,9 +37,15 @@ namespace ASEProjNew
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void syntaxbutton_Click(object sender, EventArgs e)
         {
+            if (commandlist.Contains(completecommandbox.Text))
+            {
+                MessageBox.Show("You have chosen to " + completecommandbox.Text);
+            }
 
+            else
+                throw new Exception("Enter a valid command");
         }
 
         private void loadbutton_Click(object sender, EventArgs e)
