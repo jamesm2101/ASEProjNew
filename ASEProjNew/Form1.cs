@@ -4,6 +4,7 @@ using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Windows.Forms.Design;
+using static System.Windows.Forms.LinkLabel;
 
 namespace ASEProjNew
 {
@@ -39,13 +40,43 @@ namespace ASEProjNew
 
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
-            if (commandlist.Contains(completecommandbox.Text))
+            string[] completelines = completecommandbox.Lines;
+            string[] singlelines = singlecommandbox.Lines;
+
+            if (completecommandbox.Text != null)
             {
-                MessageBox.Show("You have chosen to " + completecommandbox.Text);
+                for (int i = 0; i <= completelines.GetUpperBound(0); i++)
+                {
+                    if (commandlist.Contains(completelines[i]))
+                    {
+                        MessageBox.Show(completelines[i]+" Command is valid");
+                    }
+
+                    else
+                        throw new Exception("Enter a valid command");
+                }
             }
 
-            else
-                throw new Exception("Enter a valid command");
+            if (singlecommandbox.Text != null)
+            {
+                for (int i = 0; i <= singlelines.GetUpperBound(0); i++)
+                {
+                    if (commandlist.Contains(singlelines[i]))
+                    {
+                        MessageBox.Show(singlelines[i]+" Command is valid");
+                    }
+
+                    else
+                        throw new Exception("Enter a valid command");
+                }
+            }
+
+            
+            if (completecommandbox.Text == null && singlecommandbox.Text == null)
+                {
+                    throw new Exception("Enter a valid command");
+                }
+       
         }
 
         private void loadbutton_Click(object sender, EventArgs e)
