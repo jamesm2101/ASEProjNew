@@ -3,6 +3,7 @@ using System;
 using System.IO;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Windows.Forms.Design;
 
 namespace ASEProjNew
 {
