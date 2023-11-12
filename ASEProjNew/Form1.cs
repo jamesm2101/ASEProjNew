@@ -85,7 +85,13 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string input = singlecommandbox.Text;
+                string[] lines = singlecommandbox.Lines;
+
+                for (int i = 0; i <= lines.GetUpperBound(0); i++)
+                {
+                    MessageBox.Show(lines[i]);
+                }
+                singlecommandbox.Clear();
             }
         }
 
