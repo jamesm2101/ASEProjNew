@@ -95,13 +95,23 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
-                string[] lines = singlecommandbox.Lines;
 
-                for (int i = 0; i <= lines.GetUpperBound(0); i++)
                 {
-                    MessageBox.Show(lines[i]);
+                    string[] lines = singlecommandbox.Lines;
+
+                    for (int i = 0; i <= lines.GetUpperBound(0); i++)
+                    {
+                        if (commandlist.Contains(lines[i]))
+                        {
+                            MessageBox.Show(lines[i]);
+                        }
+
+                        else
+                            throw new Exception("Enter a valid command");
+                    }
+                    singlecommandbox.Clear();
                 }
-                singlecommandbox.Clear();
+
             }
         }
 
@@ -130,7 +140,13 @@ namespace ASEProjNew
 
             for (int i = 0; i <= lines.GetUpperBound(0); i++)
             {
-                MessageBox.Show(lines[i]);
+                if (commandlist.Contains(lines[i]))
+                {
+                    MessageBox.Show(lines[i]);
+                }
+
+                else
+                    throw new Exception("Enter a valid command");
             }
             completecommandbox.Clear();
         }
