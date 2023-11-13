@@ -79,6 +79,11 @@ namespace ASEProjNew
        
         }
 
+        /// <summary>
+        /// Load a text file into the multiline text box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loadbutton_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog1 = new OpenFileDialog();
