@@ -24,6 +24,21 @@ namespace ASEUnitTest
             bool containsCommand = textBox.ContainsCommand(input, "moveTo");
             Assert.IsFalse(containsCommand);
         }
+
+        /// <summary>
+        /// Recognises when the textbox does include a selected command
+        /// </summary>
+        [TestMethod]
+        public void RecogniseWhenTextBoxContainsCommand()
+        {
+            //Arrange
+            TextBox textBox = new TextBox();
+            string input = "moveTo";
+
+            //Act and assert
+            bool containsCommand = textBox.ContainsCommand(input, "moveTo");
+            Assert.IsTrue(containsCommand);
+        }
     }
 
     public class TextBox
