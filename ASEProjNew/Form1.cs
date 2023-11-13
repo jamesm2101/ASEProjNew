@@ -162,6 +162,8 @@ namespace ASEProjNew
             g.DrawImageUnscaled(OutputBitmap, 0, 0); //Off screen bitmap is added to the form
             g.DrawImageUnscaled(CursorBitmap, 0, 0); //cursor is added to the form
 
+            Circle cursor = new Circle(100, 100, radius);
+            cursor.draw(g);
         }
 
 
