@@ -103,6 +103,11 @@ namespace ASEProjNew
 
         }
 
+        /// <summary>
+        /// Save button will allow you to save the multiline command box as a file
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void savebutton_Click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog1 = new SaveFileDialog();
