@@ -38,6 +38,12 @@ namespace ASEProjNew
 
         }
 
+        /// <summary>
+        /// Checks for valid commands throughout both text boxes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
             string[] completelines = completecommandbox.Lines;
