@@ -122,6 +122,12 @@ namespace ASEProjNew
                 }
         }
 
+        /// <summary>
+        /// When the enter key is pressed the single command text box will check whether it contains valid commands or not
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
         private void singlecommandbox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
