@@ -39,6 +39,19 @@ namespace ASEUnitTest
             bool containsCommand = textBox.ContainsCommand(input, "moveTo");
             Assert.IsTrue(containsCommand);
         }
+
+        /// <summary>
+        /// Recognises when TextBox includes nothing
+        /// </summary>
+        [TestMethod]
+        public void RecogniseWhenTextBoxIncludesNothing() 
+        { 
+            TextBox textBox = new TextBox();
+            string input = "";
+
+            bool containsCommand = textBox.ContainsCommand(input, "moveTo");
+            Assert.IsFalse(containsCommand);
+        }
     }
 
     public class TextBox
