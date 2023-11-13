@@ -156,6 +156,11 @@ namespace ASEProjNew
 
         }
 
+        /// <summary>
+        /// Bitmaps created on top of the picture box so that cursors and drawings can overlay
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void graphicsarea_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
