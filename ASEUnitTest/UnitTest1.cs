@@ -46,9 +46,11 @@ namespace ASEUnitTest
         [TestMethod]
         public void RecogniseWhenTextBoxIncludesNothing() 
         { 
+            //Arrange
             TextBox textBox = new TextBox();
             string input = "";
 
+            //Act and assert
             bool containsCommand = textBox.ContainsCommand(input, "moveTo");
             Assert.IsFalse(containsCommand);
         }
