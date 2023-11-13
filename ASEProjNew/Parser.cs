@@ -29,6 +29,9 @@ namespace ASEProjNew
             var firstaction = strings.Select(LowerCase).FirstOrDefault(strings => actions.Contains(strings));
             return string.IsNullOrEmpty(firstaction) ? Action.Null : (Action)Enum.Parse(typeof(Action), firstaction);
         }
+
+        public static IEnumerable<int> ParseNumbers(IEnumerable<string> strings);
+
             
     }
 }
