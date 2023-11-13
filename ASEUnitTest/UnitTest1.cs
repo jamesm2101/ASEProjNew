@@ -7,8 +7,14 @@ namespace ASEUnitTest
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void Run_WhenCompleteCommandBoxIsInvalid_ShouldThrowException()
         {
+            //Arrange
+            Form1 form1 = new Form1();
+            string completelines = "";
+         
+            //Act and assert
+            Assert.ThrowsException<ArgumentException>(() => { });
         }
     }
 }
