@@ -23,11 +23,11 @@ namespace ASEProjNew
             return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
         }
               
-       public static Action ParseAction(IEnumerable<string> strings)
+       public static System.Action ParseAction(IEnumerable<string> strings)
         {
-            var actions = Enum.GetNames(typeof(Action));
+            var actions = Enum.GetNames(typeof(System.Action));
             var firstaction = strings.Select(LowerCase).FirstOrDefault(strings => actions.Contains(strings));
-            return string.IsNullOrEmpty(firstaction) ? Action.Null : (Action).Enum.Parse(typeof(Action), firstaction);
+            return string.IsNullOrEmpty(firstaction) ? Action.Null : (Action)Enum.Parse(typeof(Action), firstaction);
         }
             
     }
