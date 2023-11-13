@@ -18,7 +18,7 @@ namespace ASEUnitTest
         {
             //Arrange
             TextBox textBox = new TextBox();
-            string input = "";
+            string input = "movTo";
 
             //Act and assert
             bool containsCommand = textBox.ContainsCommand(input, "moveTo");
