@@ -166,7 +166,12 @@ namespace ASEProjNew
             cursor.draw(g);
         }
 
-
+        /// <summary>
+        /// When the run button is clicked it will check whether the multiline textbox contains the correct commands
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <exception cref="Exception"></exception>
         private void runbutton_Click(object sender, EventArgs e)
         {
             string[] lines = completecommandbox.Lines;
