@@ -22,6 +22,7 @@ namespace ASEProjNew
             SolidBrush brush = new SolidBrush(Color.Black);
             g.DrawEllipse(pen, x, y, radius, radius);
             //g.FillEllipse(brush, System.Drawing.Rectangle);
+            base.draw(g);
 
         }
     }

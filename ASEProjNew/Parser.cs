@@ -18,19 +18,12 @@ namespace ASEProjNew
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public static string LowerCase(string input)
-        {
-            return CultureInfo.CurrentCulture.TextInfo.ToTitleCase(input.ToLower());
-        }
-              
-       public static System.Action ParseAction(IEnumerable<string> strings)
-        {
-            var actions = Enum.GetNames(typeof(System.Action));
-            var firstaction = strings.Select(LowerCase).FirstOrDefault(strings => actions.Contains(strings));
-            return string.IsNullOrEmpty(firstaction) ? Action.Null : (Action)Enum.Parse(typeof(Action), firstaction);
-        }
 
-        public static IEnumerable<int> ParseNumbers(IEnumerable<string> strings);
+        parseCommand(String line)
+        {
+            line = line.ToLower(0.trim());
+            split = line.split('')
+        }
 
             
     }
