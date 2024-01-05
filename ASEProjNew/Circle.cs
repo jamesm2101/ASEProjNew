@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace ASEProjNew
 {
-    public class Circle : Shape
+    class Circle : Shape
     {
         int radius;
         int width;
@@ -22,7 +22,6 @@ namespace ASEProjNew
             SolidBrush brush = new SolidBrush(Color.Black);
             g.DrawEllipse(pen, x, y, radius, radius);
             //g.FillEllipse(brush, System.Drawing.Rectangle);
-            base.draw(g);
 
         }
     }

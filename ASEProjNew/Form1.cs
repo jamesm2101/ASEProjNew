@@ -155,6 +155,7 @@ namespace ASEProjNew
 
                     for (int i = 0; i <= lines.GetUpperBound(0); i++)
                     {
+                        String Input = singlecommandbox.Text.Trim().ToLower();
                         if (commandlist.Contains(lines[i]))
                         {
                             MessageBox.Show(lines[i]);

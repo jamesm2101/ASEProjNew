@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASEProjNew
 {
-    public class Shape
+    abstract class Shape
     {
         protected int x, y;
 
@@ -15,9 +15,7 @@ namespace ASEProjNew
             this.x = x;
             this.y = y;
         }
-        public virtual void draw(Graphics g)
-        {
-
-        }
+        public abstract void draw(Graphics g);
+      
     }
 }
