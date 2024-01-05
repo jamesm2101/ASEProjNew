@@ -11,7 +11,7 @@ namespace ASEProjNew
     /// <summary>
     /// Collection of the commands through the textbox for command lines
     /// </summary>
-    public static class Parser
+    public class Parser:Form1
     {
         /// <summary>
         /// Turns the input from the user into all lower case

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASEProjNew
 {
-    public abstract class Shape
+    public abstract class Shape:Parser
     {
         protected int x, y;
 

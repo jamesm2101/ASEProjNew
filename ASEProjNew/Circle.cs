@@ -9,7 +9,8 @@ namespace ASEProjNew
     public class Circle : Shape
     {
         int radius;
-
+        int width;
+        int height;
         public Circle(int x, int y, int radius) : base(x, y)
         {
             this.radius = radius;
@@ -20,7 +21,7 @@ namespace ASEProjNew
             Pen pen = new Pen(Color.Red, 2);
             SolidBrush brush = new SolidBrush(Color.Black);
             g.DrawEllipse(pen, x, y, radius, radius);
-            g.FillEllipse(brush, new Rectangle(x, y, radius, radius));
+            //g.FillEllipse(brush, System.Drawing.Rectangle);
 
         }
     }

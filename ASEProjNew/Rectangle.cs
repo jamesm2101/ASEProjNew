@@ -21,8 +21,8 @@ namespace ASEProjNew
             Pen pen = new Pen(Color.Red, 2);
             SolidBrush brush = new SolidBrush(Color.Black);
             g.DrawRectangle(pen, x, y, width, height);
-            g.FillRectangle(brush, x, y, width, height);
-            throw new NotImplementedException();
+            //g.FillRectangle(brush, x, y, width, height);
+            //throw new NotImplementedException();
         }
     }
 }
