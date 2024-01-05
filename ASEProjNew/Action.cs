@@ -9,7 +9,7 @@ namespace ASEProjNew
     public enum Action
     {
 
-        moveTo,drawTo,Clear,Reset,Circle,Rectangle,Triangle,Null
+        moveto,drawto,clear,reset,circle,rectangle,triangle
  
     }
 }
