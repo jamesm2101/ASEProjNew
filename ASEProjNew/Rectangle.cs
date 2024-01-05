@@ -23,6 +23,7 @@ namespace ASEProjNew
             g.DrawRectangle(pen, x, y, width, height);
             //g.FillRectangle(brush, x, y, width, height);
             //throw new NotImplementedException();
+            base.draw(g);
         }
     }
 }

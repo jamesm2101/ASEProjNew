@@ -17,6 +17,7 @@ namespace ASEProjNew
         Bitmap OutputBitmap = new Bitmap(1066, 593);
         Bitmap CursorBitmap = new Bitmap(1066, 593);
         Graphics GraphicalBitMap;
+        Canvas myCanvas;
         Color BackgroundColour = Color.DarkGray;
         List<string> commandlist = new List<string>(new string[] { "moveTo", "drawTo", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
 
@@ -24,7 +25,7 @@ namespace ASEProjNew
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
-            GraphicalBitMap = Graphics.FromImage(OutputBitmap);
+            myCanvas = new Canvas(Graphics.FromImage(OutputBitmap));
 
         }
 
@@ -187,10 +188,7 @@ namespace ASEProjNew
         {
             Graphics g = e.Graphics;
             g.DrawImageUnscaled(OutputBitmap, 0, 0); //Off screen bitmap is added to the form
-            g.DrawImageUnscaled(CursorBitmap, 0, 0); //cursor is added to the form
 
-            Circle cursor = new Circle(100, 100, radius);
-            cursor.draw(g);
         }
 
         /// <summary>
@@ -205,6 +203,7 @@ namespace ASEProjNew
 
             for (int i = 0; i <= lines.GetUpperBound(0); i++)
             {
+                String Input = completecommandbox.Text.Trim().ToLower();
                 if (commandlist.Contains(lines[i]))
                 {
                     MessageBox.Show(lines[i]);

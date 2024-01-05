@@ -18,11 +18,13 @@ namespace ASEProjNew
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-
-        parseCommand(String line)
+        
+        public static Parser Parse(string Input)
         {
-            line = line.ToLower(0.trim());
-            split = line.split('')
+            split = Input.Split('')
+            command = split[0]
+            parameter1 = split[1].Split(',')
+            
         }
 
             
