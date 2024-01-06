@@ -14,11 +14,11 @@ namespace ASEProjNew
         const bool NO_RUN = false;
         const bool execute = false;
         //two bitmaps to create output on the added picture box
-        Bitmap OutputBitmap = new Bitmap(1066, 593);
-        Bitmap CursorBitmap = new Bitmap(1066, 593);
+        Bitmap OutputBitmap = new Bitmap(400, 400);
+        Bitmap CursorBitmap = new Bitmap(400, 400);
         Graphics GraphicalBitMap;
         Canvas myCanvas;
-        Parser myParser;
+        //Parser myParser;
         Color BackgroundColour = Color.DarkGray;
         List<string> commandlist = new List<string>(new string[] { "moveTo", "drawTo", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
 
@@ -26,7 +26,11 @@ namespace ASEProjNew
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
-            myCanvas = new Canvas(Graphics.FromImage(OutputBitmap));
+            GraphicalBitMap = Graphics.FromImage(OutputBitmap);
+            myCanvas = new Canvas(this, Graphics.FromImage(OutputBitmap), Graphics.FromImage(CursorBitmap));
+            myCanvas.UpdateCursor();
+            GraphicalBitMap.Clear(BackgroundColour);
+                
 
         }
 
@@ -190,6 +194,7 @@ namespace ASEProjNew
         {
             Graphics g = e.Graphics;
             g.DrawImageUnscaled(OutputBitmap, 0, 0); //Off screen bitmap is added to the form
+            g.DrawImageUnscaled(CursorBitmap, 0, 0);
 
         }
 

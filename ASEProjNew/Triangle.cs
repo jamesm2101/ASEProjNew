@@ -4,7 +4,7 @@ using System.Linq;
 using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
 namespace ASEProjNew
 {
     public class Triangle
@@ -25,3 +25,4 @@ namespace ASEProjNew
 
     
 }
+*/

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+/*
 namespace ASEProjNew
 {
     internal class Shape
@@ -22,3 +22,4 @@ namespace ASEProjNew
       
     }
 }
+*/

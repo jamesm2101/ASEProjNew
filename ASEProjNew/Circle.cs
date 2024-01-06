@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+/*
 namespace ASEProjNew
 {
     internal class Circle : Shape
@@ -26,3 +27,4 @@ namespace ASEProjNew
         }
     }
 }
+*/
