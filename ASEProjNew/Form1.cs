@@ -18,7 +18,7 @@ namespace ASEProjNew
         Bitmap CursorBitmap = new Bitmap(400, 400);
         Graphics GraphicalBitMap;
         Canvas myCanvas;
-        //Parser myParser;
+        Parser myParser;
         Color BackgroundColour = Color.DarkGray;
         List<string> commandlist = new List<string>(new string[] { "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
 
@@ -28,6 +28,7 @@ namespace ASEProjNew
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
             GraphicalBitMap = Graphics.FromImage(OutputBitmap);
             myCanvas = new Canvas(this, Graphics.FromImage(OutputBitmap), Graphics.FromImage(CursorBitmap));
+            myParser = new Parser(myCanvas);
             myCanvas.UpdateCursor();
             GraphicalBitMap.Clear(BackgroundColour);
                 
@@ -154,23 +155,8 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
+                String input = singlecommandbox.Text.Trim();
 
-                {
-                    string[] lines = singlecommandbox.Lines;
-
-                    for (int i = 0; i <= lines.GetUpperBound(0); i++)
-                    {
-                        String Input = singlecommandbox.Text.Trim().ToLower();
-                        if (commandlist.Contains(lines[i]))
-                        {
-                            MessageBox.Show(lines[i]);
-                        }
-
-                        else
-                            throw new Exception("Enter a valid command");
-                    }
-                    singlecommandbox.Clear();
-                }
 
             }
         }

@@ -19,9 +19,16 @@ namespace ASEProjNew
 
         private HashSet<string> commands = new HashSet<string>
         {
-            "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill", "colour"
+            "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "fill", "colour"
         };
 
+        //Dictionary for variables
+        private Dictionary<string, int> variables = new Dictionary<string, int>();
+
+        public Parser(Canvas canvas)
+        {
+            myCanvas = canvas;
+        }
         private string ExecuteCommand(string commandLine, Dictionary<string, int> variables, int lineNumber)
         {
             string[] split = commandLine.Split(new[] { ' ' }, 2);
@@ -56,15 +63,22 @@ namespace ASEProjNew
                     case "clear":
                     case "red":
 
-                        /*if (command.Equals("reset"))
+                        if (command.Equals("reset"))
                             myCanvas.Reset();
                             myCanvas.UpdateCursor();
                         if (command.Equals("clear"))
                             myCanvas.Clear();
                         if (command.Equals("red"))
-                            myCanvas.ColourRed();*/
+                            myCanvas.ColourRed();
                         break;
 
+                    case "fill":
+                        if (split.Length != 2)
+                            return $"{command} expects one parameter";
+
+                        if (command.Equals("fill"))
+                            myCanvas.ShapeFill(split[1]);
+                        break;
                 }
             }
 
@@ -104,7 +118,38 @@ namespace ASEProjNew
                         throw new Exception("You need two parameters for this command");
                     myCanvas.moveto(paraminteger[0], paraminteger[1]);
                     myCanvas.UpdateCursor();
-                break;
+                    break;
+
+                case "drawto":
+                    if (paraminteger.Length != 2)
+                        throw new Exception("You need two parameters for this command");
+                    myCanvas.drawto(paraminteger[0], paraminteger[1]);
+                    myCanvas.UpdateCursor();
+                    break;
+
+                case "circle":
+                    if (paraminteger.Length != 1)
+                        throw new Exception("You need one parameters for this command");
+                    myCanvas.Circle(paraminteger[0]);
+                    break;
+
+                case "rectangle":
+                    if (paraminteger.Length != 2)
+                        throw new Exception("You need two parameters for this command");
+                    myCanvas.Rectangle(paraminteger[0], paraminteger[1]);
+                    break;
+
+                case "triangle":
+                    if (paraminteger.Length != 3)
+                        throw new Exception("You need three parameters for this command");
+                    myCanvas.Triangle(paraminteger[0], paraminteger[1], paraminteger[2]);
+                    break;
+
+                case "colour":
+                    if (paraminteger.Length != 3)
+                        throw new Exception("You need three parameters for this command");
+                    myCanvas.SetColour(paraminteger[0], paraminteger[1], paraminteger[2]);
+                    break; 
             }
         }
 

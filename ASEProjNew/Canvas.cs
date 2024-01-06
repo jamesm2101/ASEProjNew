@@ -83,17 +83,76 @@ namespace ASEProjNew
             xPos = x;
             yPos = y;
         }
-        public void DrawLine(int toX, int toY)
+        public void drawto(int toX, int toY)
         {
-            g.DrawLine(pen,xAxis,yAxis,toX,toY);
-            xAxis = toX; 
-            yAxis = toY;
+            if (toX < 0 || toX > xAxis || toY < 0 || toY > yAxis)
+                throw new Exception("Cannot draw to there");
+            if (g != null)
+            {
+                g.DrawLine(pen, xPos, yPos, toX, toY);
+            }
+
+            xPos = toX;
+            yPos = toY;
         }
 
         public void DrawSquare(int width)
         {
             g.DrawRectangle(pen,xAxis,yAxis,xAxis + width, yAxis + width);
         }
+
+        public void ShapeFill(string input)
+        {
+            if (input.Equals("on") == true)
+            {
+                fill = true;
+            }
+            else if (input.Equals("off") == true)
+            {
+                fill = false;
+            }
+            else
+                throw new Exception("Enter yes or no with fill");
+        }
+
+        public void ColourRed()
+        {
+            pen = new Pen(Color.Red, 3);
+        }
+
+        public void ColourGreen()
+        {
+            pen = new Pen(Color.Green, 3);
+        }
+
+        public void ColourBlue()
+        {
+            pen = new Pen(Color.Blue, 3);
+        }
+
+        public void ColourBlack()
+        {
+            pen = new Pen(Color.Black, 3);
+        }
+
+        public void Reset()
+        {
+            xPos = 0; yPos = 0;
+        }
+
+        public void Clear()
+        {
+            g.Clear(color);
+        }
+
+        public void SetColour(int red, int green, int blue)
+        {
+            if (red > 255 || green > 255 || blue > 255)
+                throw new Exception("Enter valid RGB");
+            pencolour = Color.FromArgb(red, green, blue);
+            pen = new Pen(pencolour, 3);
+        }
+
     }
 
     
