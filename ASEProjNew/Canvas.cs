@@ -41,7 +41,7 @@ namespace ASEProjNew
             this.callingform = CallingForm;
         }
 
-        public Canvas(Form CallingForm, Graphics gin, int xAxis, int yAxis)
+        public Canvas(Form CallingForm, Graphics gin, int xsize, int ysize)
         {
             this.g = gin;
             xAxis = xsize;
@@ -71,7 +71,7 @@ namespace ASEProjNew
         {
             cursorg.Clear(Color.Transparent);
             Pen p = new Pen(Color.Blue, 3);
-            cursorg.DrawEllipse(p, xAxis, yAxis, 4, 4);
+            cursorg.DrawRectangle(p, xPos, yPos, 4, 4);
             callingform.Refresh();
         }
 
