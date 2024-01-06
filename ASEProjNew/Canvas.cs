@@ -75,6 +75,14 @@ namespace ASEProjNew
             callingform.Refresh();
         }
 
+        public void moveto(int x, int y)
+        {
+            penPosition = new Point(x, y);
+            if (x < 0 || x > xAxis || y < 0 || y > yAxis)
+                throw new Exception("Cannot move to that position");
+            xPos = x;
+            yPos = y;
+        }
         public void DrawLine(int toX, int toY)
         {
             g.DrawLine(pen,xAxis,yAxis,toX,toY);

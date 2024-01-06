@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Reflection.Metadata;
 
-/*
+
 namespace ASEProjNew
 {
     /// <summary>
@@ -21,9 +21,13 @@ namespace ASEProjNew
         /// <param name="input"></param>
         /// <returns></returns>
 
+        private HashSet<string> commands = new HashSet<string>
+        {
+            "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill", "colour"
+        };
+
         String command;
         String Parameter1;
-        
         public void ParseCommand(string Input)
         {
             string[] split = Input.Split(' ');
@@ -42,7 +46,45 @@ namespace ASEProjNew
             }
                 
         }
+
+        private string ExecuteCommand(string commandLine, Dictionary<string, int> variables, int lineNumber)
+        {
+            string[] split = commandLine.Split(new[] { ' ' }, 2);
+            if (split.Length == 0)
+                throw new Exception("Enter a command");
+
+            string command = split[0].ToLower();
+            string parameters = split.Length > 1 ? split[1] : null;
+
+            if (!commands.Contains(command))
+                throw new Exception("Enter a valid command");
+
+            try
+            {
+                switch (command)
+                {
+                    case "moveto":
+                    case "drawto":
+                    case "circle":
+                    case "rectangle":
+                    case "triangle":
+                    case "colour":
+                        if (parameters == null)
+                            return $"'{command}' needs a parameter following it";
+
+                        string[] connectedparams = split[1].Split(' ');
+                        int paramnumbers = ParseIntegerParameters(connectedparams, command, lineNumber, variables);
+                        ExecuteCommandWithParams(command, paramnumbers);
+                        break;
+                }
+            }
+
+           }
+
+        }
+        
+        
+
                   
     }
 }
-*/
