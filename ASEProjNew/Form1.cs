@@ -20,7 +20,7 @@ namespace ASEProjNew
         Canvas myCanvas;
         //Parser myParser;
         Color BackgroundColour = Color.DarkGray;
-        List<string> commandlist = new List<string>(new string[] { "moveTo", "drawTo", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
+        List<string> commandlist = new List<string>(new string[] { "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill"});
 
         public Form1()
         {
