@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 namespace ASEProjNew
 {
-    class Circle : Shape
+    internal class Circle : Shape
     {
         int radius;
         int width;

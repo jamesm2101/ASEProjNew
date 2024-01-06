@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ASEProjNew
 {
-    public class Rectangle:Shape
+    internal class Rectangle:Shape
     {
         int width;
         int height;
