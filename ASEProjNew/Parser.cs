@@ -165,11 +165,11 @@ namespace ASEProjNew
                     myCanvas.DrawRectangle(paraminteger[0], paraminteger[1]);
                     break;
 
-                /*case "triangle":
+                case "triangle":
                     if (paraminteger.Length != 3)
-                        throw new Exception("You need three parameters for this command");
-                    myCanvas.DrawTriangle(paraminteger[0], paraminteger[1], paraminteger[2]);
-                    break;*/
+                        throw new Exception("You need two parameters for this command");
+                    myCanvas.DrawTriangle(paraminteger[0], paraminteger[1]);
+                    break;
 
                 case "colour":
                     if (paraminteger.Length != 3)

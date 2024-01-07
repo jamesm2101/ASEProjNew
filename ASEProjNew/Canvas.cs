@@ -25,11 +25,7 @@ namespace ASEProjNew
         Point penPosition = new Point(10,10);
         Color pencolour;
 
-        public Canvas()
-        {
-            xAxis = xsize;
-            yAxis = ysize;
-        }
+
         public Canvas(Form CallingForm, Graphics gin, Graphics cursorg)
         {
             this.g = gin;
@@ -167,6 +163,17 @@ namespace ASEProjNew
             g.DrawRectangle(pen, xPos - width/2, yPos - height/2, width, height);
         }
 
+        public void DrawTriangle (int width, int height)
+        {
+            if (width < 0 || height < 0) throw new Exception("Please enter new height");
+            Point point1 = new Point(xPos + width / 2, yPos + height / 2);
+            Point point2 = new Point(xPos, yPos - height / 2);
+            Point point3 = new Point(xPos - width / 2, yPos + height / 2);
+
+            Point[] triPoints = { point1, point2, point3 };
+
+            g.DrawPolygon(pen, triPoints); 
+        }
     }
 
     
