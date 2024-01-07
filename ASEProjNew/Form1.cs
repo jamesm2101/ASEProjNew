@@ -159,7 +159,7 @@ namespace ASEProjNew
                 GraphicalBitMap.Clear(BackgroundColour);
                 myParser.ProgramProcessor(program);
                 singlecommandbox.Clear();
-
+                Refresh();
 
             }
         }
@@ -195,20 +195,11 @@ namespace ASEProjNew
         /// <exception cref="Exception"></exception>
         private void runbutton_Click(object sender, EventArgs e)
         {
-            string[] lines = completecommandbox.Lines;
-
-            for (int i = 0; i <= lines.GetUpperBound(0); i++)
-            {
-                String Input = completecommandbox.Text.Trim().ToLower();
-                if (commandlist.Contains(lines[i]))
-                {
-                    MessageBox.Show(lines[i]);
-                }
-
-                else
-                    throw new Exception("Enter a valid command");
-            }
-            completecommandbox.Clear();
+            String program = completecommandbox.Text.Trim();
+            GraphicalBitMap.Clear(BackgroundColour);
+            myParser.ProgramProcessor(program);
+            singlecommandbox.Clear();
+            Refresh();
         }
 
     }
