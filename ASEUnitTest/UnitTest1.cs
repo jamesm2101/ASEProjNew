@@ -18,10 +18,10 @@ namespace ASEUnitTest
         {
             //Arrange
             TextBox textBox = new TextBox();
-            string input = "movTo";
+            string input = "movto";
 
             //Act and assert
-            bool containsCommand = textBox.ContainsCommand(input, "moveTo");
+            bool containsCommand = textBox.ContainsCommand(input, "moveto");
             Assert.IsFalse(containsCommand);
         }
 
@@ -33,10 +33,10 @@ namespace ASEUnitTest
         {
             //Arrange
             TextBox textBox = new TextBox();
-            string input = "moveTo";
+            string input = "moveto";
 
             //Act and assert
-            bool containsCommand = textBox.ContainsCommand(input, "moveTo");
+            bool containsCommand = textBox.ContainsCommand(input, "moveto");
             Assert.IsTrue(containsCommand);
         }
 

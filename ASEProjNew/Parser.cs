@@ -53,7 +53,7 @@ namespace ASEProjNew
                     case "triangle":
                     case "colour":
                         if (parameters == null)
-                            return $"'{command}' needs a parameter following it";
+                            return $"This command needs a parameter following it";
 
                         string[] connectedparams = split[1].Split(' ');
                         int[] paraminteger = ParseParamNumbers(connectedparams, command, lineNumber, variables);
@@ -100,7 +100,7 @@ namespace ASEProjNew
 
                     case "fill":
                         if (split.Length != 2)
-                            return $"{command} expects one parameter";
+                            return $"This expects one parameter - on or off";
 
                         if (command.Equals("fill"))
                             myCanvas.ShapeFill(split[1]);
@@ -110,7 +110,7 @@ namespace ASEProjNew
 
             catch
             {
-                return $"Error executing the command";
+                return $"The syntax for this command is incorrect";
             }
 
             return string.Empty;
@@ -172,7 +172,7 @@ namespace ASEProjNew
 
                 case "circle":
                     if (paraminteger.Length != 1)
-                        throw new Exception("You need one parameters for this command");
+                        throw new Exception("You need one parameter for this command");
                     myCanvas.DrawCircle(paraminteger[0]);
                     break;
 
@@ -199,7 +199,7 @@ namespace ASEProjNew
         public string ProgramProcessor(string process)
         {
             string[] lines = process.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-            StringBuilder error = new StringBuilder();
+            StringBuilder errorstring = new StringBuilder();
             int i = 0;
             while (i < lines.Length)
             {
@@ -211,19 +211,15 @@ namespace ASEProjNew
 
                 if(!string.IsNullOrEmpty(result))
                 {
-                    error.Append(result);
+                    errorstring.Append(result);
                 }
                 if (NoExecution)
-                {
-                    i = NextLine;
-                }
+                { i = NextLine; }
                 else
-                {
-                    i++;
-                }
+                { i++; }
 
             }
-            return error.ToString();
+            return errorstring.ToString();
         }
 
         }

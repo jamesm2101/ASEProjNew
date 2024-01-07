@@ -20,16 +20,20 @@ namespace ASEProjNew
         Canvas myCanvas;
         Parser myParser;
         Color BackgroundColour = Color.DarkGray;
-        List<string> commandlist = new List<string>(new string[] { "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "pen", "fill" });
+        List<string> commandlist = new List<string>(new string[] { "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "fill", "blue", "black", "green", "red" });
 
         public Form1()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
+
             GraphicalBitMap = Graphics.FromImage(OutputBitmap);
+
             myCanvas = new Canvas(this, Graphics.FromImage(OutputBitmap), Graphics.FromImage(CursorBitmap));
+
             myParser = new Parser(myCanvas);
             myCanvas.UpdateCursor();
+
             GraphicalBitMap.Clear(BackgroundColour);
                 
 
@@ -46,49 +50,30 @@ namespace ASEProjNew
         }
 
         /// <summary>
-        /// Checks for valid commands throughout both text boxes
+        /// Checks for valid commands throughout the command boxes
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <exception cref="Exception"></exception>
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
-            string[] completelines = completecommandbox.Lines;
-            string[] singlelines = singlecommandbox.Lines;
+           string program = completecommandbox.Text.Trim();
 
-            if (completecommandbox.Text != null)
-            {
-                for (int i = 0; i <= completelines.GetUpperBound(0); i++)
-                {
-                    if (commandlist.Contains(completelines[i]))
-                    {
-                        MessageBox.Show(completelines[i]+" Command is valid");
-                    }
+           string errorsstring = myParser.ProgramProcessor(program);
 
-                    else
-                        throw new Exception("Enter a valid command");
-                }
-            }
+           if (errorsstring != null)
+           {
+                MessageBox.Show(errorsstring);
+                return;  
+           }
 
-            if (singlecommandbox.Text != null)
-            {
-                for (int i = 0; i <= singlelines.GetUpperBound(0); i++)
-                {
-                    if (commandlist.Contains(singlelines[i]))
-                    {
-                        MessageBox.Show(singlelines[i]+" Command is valid");
-                    }
+           else
+           {
+                errorsstring = "No errors in this code";
+                MessageBox.Show(errorsstring);
+                return;
 
-                    else
-                        throw new Exception("Enter a valid command");
-                }
-            }
-
-            
-            if (completecommandbox.Text == null && singlecommandbox.Text == null)
-                {
-                    throw new Exception("Enter a valid command");
-                }
+           }
        
         }
 
