@@ -18,6 +18,7 @@ namespace ASEProjNew
 
         public bool fill = false;
 
+
         //Size of the canvas based on the graphics area
         const int xsize = 400;
         const int ysize = 400;
@@ -27,8 +28,13 @@ namespace ASEProjNew
         //Pen position and colour are set
         Point penPosition = new Point(10,10);
         Color pencolour = Color.Blue;
-        
 
+
+        public Canvas()
+        {
+            xAxis = xsize;
+            yAxis = ysize;
+        }
 
         /// <summary>
         /// Calling form for creating the set cursor

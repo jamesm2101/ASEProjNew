@@ -54,6 +54,26 @@ namespace ASEUnitTest
             bool containsCommand = textBox.ContainsCommand(input, "moveTo");
             Assert.IsFalse(containsCommand);
         }
+
+        /// <summary>
+        /// Test Method for checking valid coordinates when moving to
+        /// </summary>
+        [TestMethod]
+        public void ValidMoveToCoordinates()
+        {
+            //Arrange
+            Canvas canvas = new Canvas();
+
+            int ValidX = 300; //Setting a valid x and y based on the graphics 400,400
+            int ValidY = 300;
+
+            //Act
+            canvas.moveto(ValidX, ValidY); //Moving to the set coordinates
+
+            //Assert
+            Assert.AreEqual(ValidX, canvas.xPos); //Comparing between the set coordinates and the used ones to check if they are the same
+            Assert.AreEqual(ValidY, canvas.yPos);
+        }
     }
 
     public class TextBox
