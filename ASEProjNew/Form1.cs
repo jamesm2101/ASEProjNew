@@ -198,7 +198,7 @@ namespace ASEProjNew
             String program = completecommandbox.Text.Trim();
             GraphicalBitMap.Clear(BackgroundColour);
             myParser.ProgramProcessor(program);
-            singlecommandbox.Clear();
+            completecommandbox.Clear();
             graphicsarea.Invalidate();
             Refresh();
         }
