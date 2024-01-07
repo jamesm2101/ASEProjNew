@@ -29,7 +29,8 @@ namespace ASEProjNew
         {
             myCanvas = canvas;
         }
-        private string ExecuteCommand(string commandLine, Dictionary<string, int> variables, int lineNumber)
+
+        private string ExecuteCommand(string commandLine, int lineNumber,  Dictionary<string, int> variables)
         {
             string[] split = commandLine.Split(new[] { ' ' }, 2);
             if (split.Length == 0)
@@ -103,7 +104,7 @@ namespace ASEProjNew
 
             else
             {
-                return ExecuteCommand(line, LineNumber, variables);
+                return ExecuteCommand(line, CurrentLine, variables);
             }
 
             return string.Empty;
@@ -181,7 +182,7 @@ namespace ASEProjNew
                 bool NoExecution = false;
 
                 int NextLine = i;
-                string result = ParseCommand(lines, i, NextLine, out NoExecution);
+                string result = ParseCommand(lines, i, ref NextLine, out NoExecution);
 
                 if(!string.IsNullOrEmpty(result))
                 {
