@@ -155,7 +155,10 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
-                String input = singlecommandbox.Text.Trim();
+                String program = singlecommandbox.Text.Trim();
+                GraphicalBitMap.Clear(BackgroundColour);
+                myParser.ProgramProcessor(program);
+                singlecommandbox.Clear();
 
 
             }
