@@ -6,7 +6,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Globalization;
 using System.Reflection.Metadata;
-
+using System.Text;
 
 namespace ASEProjNew
 {
@@ -90,6 +90,24 @@ namespace ASEProjNew
             return string.Empty;
            }
 
+        public string ParseCommand(string[] lines, int CurrentLine, ref int LineNumber, out bool NoExecution)
+        {
+            NoExecution = false;
+            LineNumber = CurrentLine;
+            string line = lines[LineNumber].Trim();
+
+            if (string.IsNullOrWhiteSpace(line))
+            {
+                return "Empty command written";
+            }
+
+            else
+            {
+                return ExecuteCommand(line, LineNumber, variables);
+            }
+
+            return string.Empty;
+        }
         private int[] ParseParamNumbers(string[] connectedparams, string command, int lineNumber, Dictionary<string, int> variables)
         {
             int[] paraminteger = new int[connectedparams.Length];
@@ -150,6 +168,35 @@ namespace ASEProjNew
                         throw new Exception("You need three parameters for this command");
                     myCanvas.SetColour(paraminteger[0], paraminteger[1], paraminteger[2]);
                     break; 
+            }
+        }
+
+        public string ProgramProcessor(string process)
+        {
+            string[] lines = process.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            StringBuilder error = new StringBuilder();
+            int i = 0;
+            while (i < lines.Length)
+            {
+                bool NoExecution = false;
+
+                int NextLine = i;
+                string result = ParseCommand(lines, i, NextLine, out NoExecution);
+
+                if(!string.IsNullOrEmpty(result))
+                {
+                    error.Append(result);
+                }
+                if (NoExecution)
+                {
+                    i = NextLine;
+                }
+                else
+                {
+                    i++;
+                }
+
+                return string.Empty;
             }
         }
 
