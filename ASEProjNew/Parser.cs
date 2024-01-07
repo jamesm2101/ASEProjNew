@@ -36,7 +36,7 @@ namespace ASEProjNew
                 throw new Exception("Enter a command");
 
             string command = split[0].ToLower();
-            string parameters = split.Length > 1 ? split[1] : null;
+            string? parameters = split.Length > 1 ? split[1] : null;
 
             if (!commands.Contains(command))
                 throw new Exception("Enter a valid command");
@@ -186,9 +186,10 @@ namespace ASEProjNew
             int i = 0;
             while (i < lines.Length)
             {
-                bool NoExecution = false;
 
                 int NextLine = i;
+                bool NoExecution;
+
                 string result = ParseCommand(lines, i, ref NextLine, out NoExecution);
 
                 if(!string.IsNullOrEmpty(result))

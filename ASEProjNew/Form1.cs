@@ -156,7 +156,7 @@ namespace ASEProjNew
             if (e.KeyCode == Keys.Enter)
             {
                 String program = singlecommandbox.Text.Trim();
-                GraphicalBitMap.Clear(BackgroundColour);
+                /*GraphicalBitMap.Clear(BackgroundColour);*/
                 myParser.ProgramProcessor(program);
                 singlecommandbox.Clear();
                 Refresh();
