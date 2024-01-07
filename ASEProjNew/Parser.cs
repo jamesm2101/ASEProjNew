@@ -62,6 +62,9 @@ namespace ASEProjNew
                     case "reset":
                     case "clear":
                     case "red":
+                    case "green":
+                    case "blue":
+                    case "black":
 
                         if (command.Equals("reset"))
                             myCanvas.Reset();
@@ -69,7 +72,13 @@ namespace ASEProjNew
                         if (command.Equals("clear"))
                             myCanvas.Clear();
                         if (command.Equals("red"))
-                            myCanvas.ColourRed();
+                            myCanvas.ColourRedPen();
+                        if (command.Equals("green"))
+                            myCanvas.ColourGreenPen();
+                        if (command.Equals("blue"))
+                            myCanvas.ColourBluePen();
+                        if (command.Equals("black"))
+                            myCanvas.ColourBlackPen();
                         break;
 
                     case "fill":

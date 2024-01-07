@@ -79,14 +79,14 @@ namespace ASEProjNew
         {
             penPosition = new Point(x, y);
             if (x < 0 || x > xAxis || y < 0 || y > yAxis)
-                throw new Exception("Cannot move to that position");
+                throw new Exception("Cannot use moveto to that position");
             xPos = x;
             yPos = y;
         }
         public void drawto(int toX, int toY)
         {
             if (toX < 0 || toX > xAxis || toY < 0 || toY > yAxis)
-                throw new Exception("Cannot draw to there");
+                throw new Exception("Cannot use drawto method to that coordinate");
             if (g != null)
             {
                 g.DrawLine(pen, xPos, yPos, toX, toY);
@@ -112,25 +112,25 @@ namespace ASEProjNew
                 fill = false;
             }
             else
-                throw new Exception("Enter yes or no with fill");
+                throw new Exception("Enter on or off after fill command");
         }
 
-        public void ColourRed()
+        public void ColourRedPen()
         {
             pen = new Pen(Color.Red, 3);
         }
 
-        public void ColourGreen()
+        public void ColourGreenPen()
         {
             pen = new Pen(Color.Green, 3);
         }
 
-        public void ColourBlue()
+        public void ColourBluePen()
         {
             pen = new Pen(Color.Blue, 3);
         }
 
-        public void ColourBlack()
+        public void ColourBlackPen()
         {
             pen = new Pen(Color.Black, 3);
         }
@@ -148,10 +148,12 @@ namespace ASEProjNew
         public void SetColour(int red, int green, int blue)
         {
             if (red > 255 || green > 255 || blue > 255)
-                throw new Exception("Enter valid RGB");
+                throw new Exception("Enter valid RGB numbers ranging from 0 to 255");
             pencolour = Color.FromArgb(red, green, blue);
             pen = new Pen(pencolour, 3);
         }
+
+
 
     }
 
