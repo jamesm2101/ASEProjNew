@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using System.Reflection.Metadata;
 using System.Text;
+using System.IO;
 
 namespace ASEProjNew
 {
@@ -19,7 +20,7 @@ namespace ASEProjNew
 
         private HashSet<string> commands = new HashSet<string>
         {
-            "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "fill", "colour"
+            "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "fill", "colour", "red", "green", "blue", "black"
         };
 
         //Dictionary for variables
@@ -65,20 +66,36 @@ namespace ASEProjNew
                     case "green":
                     case "blue":
                     case "black":
+                        if (split.Length > 1)
+                            return $"This command does not need any parameters";
 
                         if (command.Equals("reset"))
+                        {
                             myCanvas.Reset();
                             myCanvas.UpdateCursor();
-                        if (command.Equals("clear"))
+                        }
+                        else if (command.Equals("clear"))
                             myCanvas.Clear();
-                        if (command.Equals("red"))
+                        else if (command.Equals("red"))
+                        {
                             myCanvas.ColourRedPen();
-                        if (command.Equals("green"))
+                            myCanvas.UpdateCursor();
+                        }
+                        else if (command.Equals("green"))
+                        {
                             myCanvas.ColourGreenPen();
-                        if (command.Equals("blue"))
+                            myCanvas.UpdateCursor();
+                        }
+                        else if (command.Equals("blue"))
+                        {
                             myCanvas.ColourBluePen();
-                        if (command.Equals("black"))
+                            myCanvas.UpdateCursor();
+                        }
+                        else if (command.Equals("black"))
+                        { 
                             myCanvas.ColourBlackPen();
+                            myCanvas.UpdateCursor();
+                        }
                         break;
 
                     case "fill":

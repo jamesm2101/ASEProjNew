@@ -23,7 +23,8 @@ namespace ASEProjNew
         Form callingform;
         
         Point penPosition = new Point(10,10);
-        Color pencolour;
+        Color pencolour = Color.Blue;
+        
 
 
         public Canvas(Form CallingForm, Graphics gin, Graphics cursorg)
@@ -33,7 +34,7 @@ namespace ASEProjNew
             xAxis = xsize;
             yAxis = ysize;
             xPos = yPos = 0;
-            pen = new Pen(Color.Blue, 2);
+            pen = new Pen(pencolour, 2);
             this.callingform = CallingForm;
         }
 
@@ -43,7 +44,7 @@ namespace ASEProjNew
             xAxis = xsize;
             yAxis = ysize;
             xPos = yPos = 0;
-            pen = new Pen(Color.Blue, 2);
+            pen = new Pen(pencolour, 2);
             this.callingform = CallingForm;
         }
 
@@ -66,7 +67,7 @@ namespace ASEProjNew
         public void UpdateCursor()
         {
             cursorg.Clear(Color.Transparent);
-            Pen p = new Pen(Color.Blue, 3);
+            Pen p = new Pen(pencolour, 3);
             cursorg.DrawRectangle(p, xPos, yPos, 2, 2);
             callingform.Refresh();
         }
@@ -99,22 +100,26 @@ namespace ASEProjNew
 
         public void ColourRedPen()
         {
-            pen = new Pen(Color.Red, 3);
+            pencolour = Color.Red;
+            pen = new Pen(pencolour, 3);
         }
 
         public void ColourGreenPen()
         {
-            pen = new Pen(Color.Green, 3);
+            pencolour = Color.Green;
+            pen = new Pen(pencolour, 3);
         }
 
         public void ColourBluePen()
         {
-            pen = new Pen(Color.Blue, 3);
+            pencolour = Color.Blue;
+            pen = new Pen(pencolour, 3);
         }
 
         public void ColourBlackPen()
         {
-            pen = new Pen(Color.Black, 3);
+            pencolour = Color.Black;
+            pen = new Pen(pencolour, 3);
         }
 
         public void Reset()
