@@ -13,7 +13,7 @@ namespace ASEProjNew
     /// <summary>
     /// Collection of the commands through the textbox for command lines
     /// </summary>
-    public class Parser:Form1
+    public class Parser
     {
         private Canvas myCanvas;
 
@@ -24,7 +24,6 @@ namespace ASEProjNew
 
         //Dictionary for variables
         private Dictionary<string, int> variables = new Dictionary<string, int>();
-
         public Parser(Canvas canvas)
         {
             myCanvas = canvas;
@@ -107,7 +106,6 @@ namespace ASEProjNew
                 return ExecuteCommand(line, CurrentLine, variables);
             }
 
-            return string.Empty;
         }
         private int[] ParseParamNumbers(string[] connectedparams, string command, int lineNumber, Dictionary<string, int> variables)
         {
