@@ -153,22 +153,22 @@ namespace ASEProjNew
                     myCanvas.UpdateCursor();
                     break;
 
-                /*case "circle":
+                case "circle":
                     if (paraminteger.Length != 1)
                         throw new Exception("You need one parameters for this command");
-                    myCanvas.Circle(paraminteger[0]);
-                    break;*/
+                    myCanvas.DrawCircle(paraminteger[0]);
+                    break;
 
-                /*case "rectangle":
+                case "rectangle":
                     if (paraminteger.Length != 2)
                         throw new Exception("You need two parameters for this command");
-                    myCanvas.Rectangle(paraminteger[0], paraminteger[1]);
-                    break;*/
+                    myCanvas.DrawRectangle(paraminteger[0], paraminteger[1]);
+                    break;
 
                 /*case "triangle":
                     if (paraminteger.Length != 3)
                         throw new Exception("You need three parameters for this command");
-                    myCanvas.Triangle(paraminteger[0], paraminteger[1], paraminteger[2]);
+                    myCanvas.DrawTriangle(paraminteger[0], paraminteger[1], paraminteger[2]);
                     break;*/
 
                 case "colour":

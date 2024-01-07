@@ -153,7 +153,19 @@ namespace ASEProjNew
             pen = new Pen(pencolour, 3);
         }
 
+        public void DrawCircle (int radius)
+        {
+            if (radius < 0) throw new Exception("Please enter a valid radius");
 
+            g.DrawEllipse(pen, xPos - radius, yPos - radius, radius*2, radius*2);
+        }
+
+        public void DrawRectangle (int  width, int height)
+        {
+            if (width < 0 || height < 0) throw new Exception("Please enter a valid width or height");
+
+            g.DrawRectangle(pen, xPos - width/2, yPos - height/2, width, height);
+        }
 
     }
 
