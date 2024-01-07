@@ -97,20 +97,6 @@ namespace ASEProjNew
             g.DrawRectangle(pen,xAxis,yAxis,xAxis + width, yAxis + width);
         }
 
-        public void ShapeFill(string input)
-        {
-            if (input.Equals("on") == true)
-            {
-                fill = true;
-            }
-            else if (input.Equals("off") == true)
-            {
-                fill = false;
-            }
-            else
-                throw new Exception("Enter on or off after fill command");
-        }
-
         public void ColourRedPen()
         {
             pen = new Pen(Color.Red, 3);
@@ -149,11 +135,29 @@ namespace ASEProjNew
             pen = new Pen(pencolour, 3);
         }
 
+        public void ShapeFill(string input)
+        {
+            if (input.Equals("on") == true)
+            {
+                fill = true;
+            }
+            else if (input.Equals("off") == true)
+            {
+                fill = false;
+            }
+            else
+                throw new Exception("Enter on or off after fill command");
+        }
         public void DrawCircle (int radius)
         {
             if (radius < 0) throw new Exception("Please enter a valid radius");
 
             g.DrawEllipse(pen, xPos - radius, yPos - radius, radius*2, radius*2);
+
+            if (fill == true)
+            {
+                g.FillEllipse(pen.Brush, xPos - radius, yPos - radius, radius*2, radius*2);
+            }
         }
 
         public void DrawRectangle (int  width, int height)
@@ -161,18 +165,28 @@ namespace ASEProjNew
             if (width < 0 || height < 0) throw new Exception("Please enter a valid width or height");
 
             g.DrawRectangle(pen, xPos - width/2, yPos - height/2, width, height);
+
+            if (fill == true)
+            {
+                g.FillRectangle(pen.Brush, xPos - width / 2, yPos - height / 2, width, height);
+            }
         }
 
         public void DrawTriangle (int width, int height)
         {
-            if (width < 0 || height < 0) throw new Exception("Please enter new height");
+            if (width < 0 || height < 0) throw new Exception("Please enter new width or height for the triangle");
             Point point1 = new Point(xPos + width / 2, yPos + height / 2);
             Point point2 = new Point(xPos, yPos - height / 2);
             Point point3 = new Point(xPos - width / 2, yPos + height / 2);
 
-            Point[] triPoints = { point1, point2, point3 };
+            Point[] triPoints = { point1, point2, point3};
 
-            g.DrawPolygon(pen, triPoints); 
+            g.DrawPolygon(pen, triPoints);
+            
+            if (fill == true)
+            {
+                g.FillPolygon(pen.Brush, triPoints);
+            }
         }
     }
 

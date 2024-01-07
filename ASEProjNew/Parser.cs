@@ -166,7 +166,7 @@ namespace ASEProjNew
                     break;
 
                 case "triangle":
-                    if (paraminteger.Length != 3)
+                    if (paraminteger.Length != 2)
                         throw new Exception("You need two parameters for this command");
                     myCanvas.DrawTriangle(paraminteger[0], paraminteger[1]);
                     break;
