@@ -13,13 +13,17 @@ namespace ASEProjNew
         const bool RUN = true;
         const bool NO_RUN = false;
         const bool execute = false;
-        //two bitmaps to create output on the added picture box
+        //Two bitmaps created on top of each other to aid the creation of a canvas
         Bitmap OutputBitmap = new Bitmap(400, 400);
         Bitmap CursorBitmap = new Bitmap(400, 400);
         Graphics GraphicalBitMap;
         Canvas myCanvas;
         Parser myParser;
+
+        //Set background colour
         Color BackgroundColour = Color.DarkGray;
+
+        //Command list is created for syntax
         List<string> commandlist = new List<string>(new string[] { "moveto", "drawto", "clear", "reset", "circle", "rectangle", "triangle", "fill", "blue", "black", "green", "red" });
 
         public Form1()
@@ -27,8 +31,10 @@ namespace ASEProjNew
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen; //centre the form
 
+            //GraphicalBitmap connected to OutputBitmap
             GraphicalBitMap = Graphics.FromImage(OutputBitmap);
 
+            //Canvas created from the two bitmaps to help with graphics
             myCanvas = new Canvas(this, Graphics.FromImage(OutputBitmap), Graphics.FromImage(CursorBitmap));
 
             myParser = new Parser(myCanvas);
@@ -57,10 +63,13 @@ namespace ASEProjNew
         /// <exception cref="Exception"></exception>
         private void syntaxbutton_Click(object sender, EventArgs e)
         {
+            //Whitespace removed from the command box
            string program = completecommandbox.Text.Trim();
 
+            //Errorstring ran through the processor
            string errorsstring = myParser.ProgramProcessor(program);
 
+            //Message box shown with the included errors list (if there is one)
            if (errorsstring != null)
            {
                 MessageBox.Show(errorsstring);
@@ -131,7 +140,7 @@ namespace ASEProjNew
         }
 
         /// <summary>
-        /// When the enter key is pressed the single command text box will check whether it contains valid commands or not
+        /// When the enter key is pressed the single command text box will be processed
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -140,9 +149,14 @@ namespace ASEProjNew
         {
             if (e.KeyCode == Keys.Enter)
             {
+                //Whitespace removed
                 String program = singlecommandbox.Text.Trim();
                 /*GraphicalBitMap.Clear(BackgroundColour);*/
+
+                //Program processed
                 myParser.ProgramProcessor(program);
+
+                //Graphics box and command box are refreshed
                 singlecommandbox.Clear();
                 Refresh();
 
@@ -167,22 +181,29 @@ namespace ASEProjNew
         private void graphicsarea_Paint(object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            g.DrawImageUnscaled(OutputBitmap, 0, 0); //Off screen bitmap is added to the form
-            g.DrawImageUnscaled(CursorBitmap, 0, 0);
+            //Off screen bitmap is added to the form
+            g.DrawImageUnscaled(OutputBitmap, 0, 0);
+            //Cursor bitmap is added to the form
+            g.DrawImageUnscaled(CursorBitmap, 0, 0); 
 
         }
 
         /// <summary>
-        /// When the run button is clicked it will check whether the multiline textbox contains the correct commands
+        /// When the run button is clicked it will process the multiline commands
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         /// <exception cref="Exception"></exception>
         private void runbutton_Click(object sender, EventArgs e)
         {
+            //Whitespace removed
             String program = completecommandbox.Text.Trim();
             GraphicalBitMap.Clear(BackgroundColour);
+
+            //Process program
             myParser.ProgramProcessor(program);
+
+            //Command box and graphics box refreshed
             completecommandbox.Clear();
             graphicsarea.Invalidate();
             Refresh();
