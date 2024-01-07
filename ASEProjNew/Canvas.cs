@@ -37,7 +37,7 @@ namespace ASEProjNew
             xAxis = xsize;
             yAxis = ysize;
             xPos = yPos = 0;
-            pen = new Pen(Color.Blue, 3);
+            pen = new Pen(Color.Blue, 2);
             this.callingform = CallingForm;
         }
 
@@ -47,7 +47,7 @@ namespace ASEProjNew
             xAxis = xsize;
             yAxis = ysize;
             xPos = yPos = 0;
-            pen = new Pen(Color.Blue, 3);
+            pen = new Pen(Color.Blue, 2);
             this.callingform = CallingForm;
         }
 
@@ -71,7 +71,7 @@ namespace ASEProjNew
         {
             cursorg.Clear(Color.Transparent);
             Pen p = new Pen(Color.Blue, 3);
-            cursorg.DrawRectangle(p, xPos, yPos, 4, 4);
+            cursorg.DrawRectangle(p, xPos, yPos, 2, 2);
             callingform.Refresh();
         }
 
