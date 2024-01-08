@@ -112,6 +112,21 @@ namespace ASEUnitTest
             Assert.AreNotEqual(InValidX, canvas.xPos);//Check the invalid coordinates are not equal to where the cursor is
             Assert.AreNotEqual (InValidY, canvas.yPos);
         }
+
+        /// <summary>
+        /// Test method for and invalid radius for the circle
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void InValidCircle() 
+        {
+            Canvas canvas = new Canvas();
+            //Arrange
+            int Radius = -20; // Set an invalid radius
+            //Act and Assert (via Exception)
+            canvas.DrawCircle(Radius);
+            
+        }
     }
 
     public class TextBox
