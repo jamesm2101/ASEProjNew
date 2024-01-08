@@ -72,18 +72,28 @@ namespace ASEProjNew
             //Message box shown with the included errors list (if there is one)
            if (errorsstring != null)
            {
-                MessageBox.Show(errorsstring);
-                return;  
-           }
+                syntaxOutput(errorsstring);
+                graphicsarea.Refresh();
+                return;
 
-           else
+            }
+
+            else
            {
                 errorsstring = "No errors in this code";
                 MessageBox.Show(errorsstring);
                 return;
 
-           }
+            }
        
+        }
+
+        private void syntaxOutput(string text)
+        {
+            GraphicalBitMap.Clear(BackColor);
+            StringFormat DrawFormat = new StringFormat();
+
+
         }
 
         /// <summary>

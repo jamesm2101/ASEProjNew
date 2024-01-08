@@ -16,6 +16,7 @@ namespace ASEProjNew
         public int xPos, yPos;
         protected Color color = Color.DarkGray;
 
+        //no fill set to start
         public bool fill = false;
 
 
@@ -26,9 +27,9 @@ namespace ASEProjNew
         Form callingform;
         
         //Pen position and colour are set
-        Point penPosition = new Point(10,10);
-        Color pencolour = Color.Blue;
 
+        Color pencolour = Color.Blue;
+        Point penPosition = new Point(10, 10);
 
         public Canvas()
         {
@@ -180,8 +181,8 @@ namespace ASEProjNew
         /// </summary>
         public void Reset()
         {
-            xPos = 0; yPos = 0;
-            g.Clear(color);
+            moveto(0, 0);
+
             UpdateCursor();
         }
 
@@ -203,9 +204,11 @@ namespace ASEProjNew
         /// <exception cref="Exception"></exception>
         public void SetColour(int red, int green, int blue)
         {
-            ///Values of RGB must be below 255
-            if (red > 255 || green > 255 || blue > 255)
+            ///Values of RGB must be between 0 and 255
+            if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255)
                 throw new Exception("Enter valid RGB numbers ranging from 0 to 255");
+
+            //New pen colour added
             pencolour = Color.FromArgb(red, green, blue);
             pen = new Pen(pencolour, 3);
         }
@@ -217,14 +220,18 @@ namespace ASEProjNew
         /// <exception cref="Exception"></exception>
         public void ShapeFill(string input)
         {
+            //Shape fill on
             if (input.Equals("on") == true)
             {
                 fill = true;
             }
+
+            //Shape fill off
             else if (input.Equals("off") == true)
             {
                 fill = false;
             }
+            //If invalid setting is given
             else
                 throw new Exception("Enter on or off after fill command");
         }

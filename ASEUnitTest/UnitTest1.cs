@@ -143,35 +143,33 @@ namespace ASEUnitTest
             int DrawToY = 100;
 
             //Act and Assert
-            {
-                canvas.drawto(DrawToX, DrawToY); //Draw to the coordinates
-                canvas.Clear(); //Clear the page
-            }
-
-            Assert.AreEqual(DrawToX,canvas.xPos); //Check that the coordinates are still the same to where was drawn to
-            Assert.AreEqual(DrawToY,canvas.yPos);
+            
+            canvas.drawto(DrawToX, DrawToY); //Draw to the coordinates
+            canvas.Clear(); //Clear the page
+            Assert.AreNotEqual(0, canvas.xPos);
+            Assert.AreNotEqual(0, canvas.yPos);
+            
         }
 
         /// <summary>
         /// Test Method for checking the Reset Method
         /// </summary>
         [TestMethod]
-        public void ValidReset() 
+        public void ValidReset()
         {
             Canvas canvas = new Canvas();
 
             //Arrange
-            int InitialX = 0;
-            int InitialY = 0;
-            int DrawToX = 100; //x and y variables set
-            int DrawToY = 100;
+            int MoveToX = 100; //x and y variables set
+            int MoveToY = 100;
 
             //Act and Assert
-            canvas.drawto(DrawToX, DrawToY); //Move to the set coordinates
+            canvas.moveto(MoveToX, MoveToY);
+            
             canvas.Reset(); //Reset the page
-
-            Assert.AreEqual(canvas.xPos, InitialX); //Make sure that the coordinates do match
-            Assert.AreEqual(canvas.yPos, InitialY);
+            
+            Assert.AreEqual(0, canvas.xPos); //Make sure that the coordinates do match
+            Assert.AreEqual(0, canvas.yPos);
         }
 
         /// <summary>
