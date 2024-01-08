@@ -181,6 +181,7 @@ namespace ASEProjNew
         public void Reset()
         {
             xPos = 0; yPos = 0;
+            g.Clear(color);
         }
 
         /// <summary>
