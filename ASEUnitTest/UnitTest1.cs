@@ -1,6 +1,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ASEProjNew;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace ASEUnitTest
 {
@@ -217,7 +218,19 @@ namespace ASEUnitTest
             canvas.DrawTriangle(InvalidWidth, InvalidHeight);
         }
 
-        
+        /// <summary>
+        /// Test method for a valid colour
+        /// </summary>
+        [TestMethod]
+        public void ValidColour()
+        {
+            Canvas canvas = new Canvas();
+            //Arrange
+            string ValidColour = "green"; //Setting valid colour as green
+            //Act and Assert
+            canvas.ColourGreenPen(); //Setting pen to colour
+            Assert.IsTrue(ValidColour.Equals(ValidColour)); //Checking colour
+        }
     }
 
     public class TextBox
