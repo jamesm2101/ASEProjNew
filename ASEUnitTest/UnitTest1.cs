@@ -145,6 +145,7 @@ namespace ASEUnitTest
             {
                 canvas.drawto(DrawToX, DrawToY); //Draw to the coordinates
                 canvas.Clear(); //Clear the page
+                canvas.drawto(DrawToX, DrawToY);
             }
             Assert.AreEqual(DrawToX,canvas.xPos); //Check that the coordinates are still the same to where was drawn to
             Assert.AreEqual(DrawToY,canvas.yPos);
@@ -215,6 +216,8 @@ namespace ASEUnitTest
             //Act and Assert (via Exception)
             canvas.DrawTriangle(InvalidWidth, InvalidHeight);
         }
+
+        
     }
 
     public class TextBox

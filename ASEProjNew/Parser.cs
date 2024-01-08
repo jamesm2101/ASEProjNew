@@ -65,7 +65,7 @@ namespace ASEProjNew
                     case "triangle":
                     case "colour":
                         if (parameters == null)
-                            return $"This command needs a parameter following it";
+                            return$"This command needs a parameter following it";
 
                         string[] connectedparams = split[1].Split(' ');
                         int[] paraminteger = ParseParamNumbers(connectedparams, command, lineNumber, variables);
