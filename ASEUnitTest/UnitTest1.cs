@@ -127,6 +127,22 @@ namespace ASEUnitTest
             canvas.DrawCircle(Radius);
             
         }
+
+        /// <summary>
+        /// Test method for an invalid width and height for the circle
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void InValidRectangle() 
+        { 
+            Canvas canvas = new Canvas();
+            //Arrange
+            int InvalidWidth = -30; //Set an invalid width and height
+            int InvalidHeight = -30;
+
+            //Act and Assert (via Exception)
+            canvas.DrawRectangle(InvalidWidth, InvalidHeight);
+        }
     }
 
     public class TextBox
