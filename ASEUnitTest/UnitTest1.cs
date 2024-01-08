@@ -134,11 +134,13 @@ namespace ASEUnitTest
         /// Test Method for 
         /// </summary>
         [TestMethod]
-        public void InValidClear() 
+        public void ValidClear() 
         {
             Canvas canvas = new Canvas();
 
             //Arrange
+            int InitialXPos = canvas.xPos;
+            int InitialYPos = canvas.yPos;
             int DrawToX = 100; // Set an x and y to draw to
             int DrawToY = 100;
 
@@ -146,8 +148,8 @@ namespace ASEUnitTest
             {
                 canvas.drawto(DrawToX, DrawToY); //Draw to the coordinates
                 canvas.Clear(); //Clear the page
-                canvas.drawto(DrawToX, DrawToY);
             }
+
             Assert.AreEqual(DrawToX,canvas.xPos); //Check that the coordinates are still the same to where was drawn to
             Assert.AreEqual(DrawToY,canvas.yPos);
         }
@@ -161,14 +163,15 @@ namespace ASEUnitTest
             Canvas canvas = new Canvas();
 
             //Arrange
-            int MoveToX = 100; //x and y variables set
-            int MoveToY = 100;
+            int DrawToX = 100; //x and y variables set
+            int DrawToY = 100;
 
             //Act and Assert
-            canvas.moveto(MoveToX, MoveToY); //Move to the set coordinates
+            canvas.drawto(DrawToX, DrawToY); //Move to the set coordinates
             canvas.Reset(); //Reset the page
-            Assert.AreNotEqual(MoveToX, canvas.xPos); //Make sure that the coordinates do not match
-            Assert.AreNotEqual(MoveToY, canvas.yPos);
+
+            Assert.AreEqual(canvas.xPos, 0); //Make sure that the coordinates do match
+            Assert.AreEqual(canvas.yPos, 0);
         }
 
         /// <summary>
@@ -234,6 +237,23 @@ namespace ASEUnitTest
             //Act and Assert
             canvas.SetColour(ValidR,ValidG,ValidB); //Setting pen to colour
             Assert.AreEqual(pencolour,Color.FromArgb(ValidR,ValidG,ValidB)); //Checking colour
+        }
+
+        /// <summary>
+        /// Test Method for an invalid fill of a shape
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void InValidFill()
+        {
+            Canvas canvas = new Canvas();
+            //Arrange
+            string fillstatus = "offf"; //Invalid setting for fill
+            int radius = 10; //Set radius of circle to be drawn
+            //Act and Assert
+            canvas.ShapeFill(fillstatus); //Set fill status to invalid setting
+            canvas.DrawCircle(radius); //Draw the circle
+
         }
     }
 
