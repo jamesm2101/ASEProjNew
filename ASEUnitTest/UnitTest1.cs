@@ -56,6 +56,22 @@ namespace ASEUnitTest
         }
 
         /// <summary>
+        /// Test method for an invalid parameter
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void InvalidParameter() 
+        { 
+            Canvas canvas = new Canvas();
+            //Arrange
+            int ValidParam = 200;
+            int InvalidParam = -500; // Set the radius to an invalid parameter
+
+            //Act and Assert (via Exception)
+            canvas.DrawRectangle(ValidParam,InvalidParam); //Try draw the rectangle with one Invalid parameter
+        }
+
+        /// <summary>
         /// Test Method for checking valid coordinates when moving to
         /// </summary>
         [TestMethod]
