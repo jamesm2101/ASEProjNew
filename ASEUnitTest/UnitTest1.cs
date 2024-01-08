@@ -139,8 +139,6 @@ namespace ASEUnitTest
             Canvas canvas = new Canvas();
 
             //Arrange
-            int InitialXPos = canvas.xPos;
-            int InitialYPos = canvas.yPos;
             int DrawToX = 100; // Set an x and y to draw to
             int DrawToY = 100;
 
@@ -163,6 +161,8 @@ namespace ASEUnitTest
             Canvas canvas = new Canvas();
 
             //Arrange
+            int InitialX = 0;
+            int InitialY = 0;
             int DrawToX = 100; //x and y variables set
             int DrawToY = 100;
 
@@ -170,8 +170,8 @@ namespace ASEUnitTest
             canvas.drawto(DrawToX, DrawToY); //Move to the set coordinates
             canvas.Reset(); //Reset the page
 
-            Assert.AreEqual(canvas.xPos, 0); //Make sure that the coordinates do match
-            Assert.AreEqual(canvas.yPos, 0);
+            Assert.AreEqual(canvas.xPos, InitialX); //Make sure that the coordinates do match
+            Assert.AreEqual(canvas.yPos, InitialY);
         }
 
         /// <summary>

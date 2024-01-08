@@ -182,6 +182,7 @@ namespace ASEProjNew
         {
             xPos = 0; yPos = 0;
             g.Clear(color);
+            UpdateCursor();
         }
 
         /// <summary>
@@ -190,6 +191,7 @@ namespace ASEProjNew
         public void Clear()
         {
             g.Clear(color);
+            UpdateCursor();
         }
 
         /// <summary>
