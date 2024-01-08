@@ -275,6 +275,8 @@ namespace ASEProjNew
                 if(!string.IsNullOrEmpty(result))
                 {
                     errorstring.Append(result);
+                    //If an error is added to the list then throw an exception
+                    throw new Exception("Invalid syntax for this command, try again");
                 }
                 if (NoExecution)
                 { i = NextLine; }
