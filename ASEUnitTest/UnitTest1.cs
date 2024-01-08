@@ -226,10 +226,14 @@ namespace ASEUnitTest
         {
             Canvas canvas = new Canvas();
             //Arrange
-            string ValidColour = "green"; //Setting valid colour as green
+            int ValidR = 255; //Setting valid RGB parameters
+            int ValidG = 255;
+            int ValidB = 255;
+            Color pencolour = Color.FromArgb(ValidR,ValidG,ValidB);
+            Pen p = new Pen(pencolour, 2);
             //Act and Assert
-            canvas.ColourGreenPen(); //Setting pen to colour
-            Assert.IsTrue(ValidColour.Equals(ValidColour)); //Checking colour
+            canvas.SetColour(ValidR,ValidG,ValidB); //Setting pen to colour
+            Assert.AreEqual(pencolour,Color.FromArgb(ValidR,ValidG,ValidB)); //Checking colour
         }
     }
 
