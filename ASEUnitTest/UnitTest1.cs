@@ -114,6 +114,46 @@ namespace ASEUnitTest
         }
 
         /// <summary>
+        /// Test Method for 
+        /// </summary>
+        [TestMethod]
+        public void InValidClear() 
+        {
+            Canvas canvas = new Canvas();
+
+            //Arrange
+            int DrawToX = 100; // Set an x and y to draw to
+            int DrawToY = 100;
+
+            //Act and Assert
+            {
+                canvas.drawto(DrawToX, DrawToY); //Draw to the coordinates
+                canvas.Clear(); //Clear the page
+            }
+            Assert.AreEqual(DrawToX,canvas.xPos); //Check that the coordinates are still the same to where was drawn to
+            Assert.AreEqual(DrawToY,canvas.yPos);
+        }
+
+        /// <summary>
+        /// Test Method for checking the Reset Method
+        /// </summary>
+        [TestMethod]
+        public void ValidReset() 
+        {
+            Canvas canvas = new Canvas();
+
+            //Arrange
+            int MoveToX = 100; //x and y variables set
+            int MoveToY = 100;
+
+            //Act and Assert
+            canvas.moveto(MoveToX, MoveToY); //Move to the set coordinates
+            canvas.Reset(); //Reset the page
+            Assert.AreNotEqual(MoveToX, canvas.xPos); //Make sure that the coordinates do not match
+            Assert.AreNotEqual(MoveToY, canvas.yPos);
+        }
+
+        /// <summary>
         /// Test method for and invalid radius for the circle
         /// </summary>
         [TestMethod]
