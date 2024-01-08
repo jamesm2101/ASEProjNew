@@ -64,7 +64,7 @@ namespace ASEUnitTest
             //Arrange
             Canvas canvas = new Canvas();
 
-            int ValidX = 300; //Setting a valid x and y based on the graphics 400,400
+            int ValidX = 300; //Setting a valid x and y based on the graphics 400,400 axis
             int ValidY = 300;
 
             //Act
@@ -73,6 +73,26 @@ namespace ASEUnitTest
             //Assert
             Assert.AreEqual(ValidX, canvas.xPos); //Comparing between the set coordinates and the used ones to check if they are the same
             Assert.AreEqual(ValidY, canvas.yPos);
+        }
+
+        /// <summary>
+        /// Test method for checking invalid moveto coordinates
+        /// </summary>
+        [TestMethod]
+        public void InValidMoveToCoordinates() 
+        {
+            Canvas canvas = new Canvas();
+
+            //Act
+            int InValidX = -200; //Setting a valid x and y based on graphics 400,400 axis
+            int InValidY = -200;
+
+            //Arrange
+            canvas.moveto(InValidX, InValidY); //Moveto the invalid coordinates
+
+            //Assert
+            Assert.AreNotEqual(InValidX, canvas.xPos); //Check that the invalid coordinates are not equal to where the cursor is
+            Assert.AreNotEqual(InValidY, canvas.yPos);
         }
     }
 
