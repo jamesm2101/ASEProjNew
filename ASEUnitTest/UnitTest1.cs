@@ -79,20 +79,38 @@ namespace ASEUnitTest
         /// Test method for checking invalid moveto coordinates
         /// </summary>
         [TestMethod]
+        [ExpectedException(typeof(Exception))]
         public void InValidMoveToCoordinates() 
         {
             Canvas canvas = new Canvas();
 
-            //Act
+            //Arrange
             int InValidX = -200; //Setting a valid x and y based on graphics 400,400 axis
             int InValidY = -200;
 
-            //Arrange
+            //Act and Assert
             canvas.moveto(InValidX, InValidY); //Moveto the invalid coordinates
-
-            //Assert
             Assert.AreNotEqual(InValidX, canvas.xPos); //Check that the invalid coordinates are not equal to where the cursor is
             Assert.AreNotEqual(InValidY, canvas.yPos);
+        }
+
+        /// <summary>
+        /// Test method for InValid drawto coordinates
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(Exception))]
+        public void InValidDrawToCoordinates()
+        {
+            Canvas canvas = new Canvas();
+
+            //Arrange
+            int InValidX = -200; //Set an invalid x and y coordinate
+            int InValidY = -200;
+
+            //Act and Assert
+            canvas.drawto(InValidX, InValidY); //Try drawto invalid coordinates
+            Assert.AreNotEqual(InValidX, canvas.xPos);//Check the invalid coordinates are not equal to where the cursor is
+            Assert.AreNotEqual (InValidY, canvas.yPos);
         }
     }
 
